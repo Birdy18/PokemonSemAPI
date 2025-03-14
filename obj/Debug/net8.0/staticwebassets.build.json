@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "AuxsnVQVEbYIjj2dbkPNu2i/1FC6jLfgqr9J0IkhZJ0=",
+  "Source": "PokemonSemAPI",
+  "BasePath": "_content/PokemonSemAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
