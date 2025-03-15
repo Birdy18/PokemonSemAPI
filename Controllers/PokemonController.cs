@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using POKEMONSEMAPI.Models;
+using POKEMONSEMAPI.Models.Requests;
 using POKEMONSEMAPI.Repositories;
 namespace POKEMONSEMAPI.Controllers
 {
@@ -12,6 +14,25 @@ namespace POKEMONSEMAPI.Controllers
         {
             _context = context;
         }
-        // CRUD endpoints will be added here
+        
+        [HttpPost("", Name = "AddPokemon")]
+        public Pokemon AddPokemon(PokemonCreateRequest request){
+            Pokemon pokemon = new Pokemon();
+            pokemon.ID = request.ID;
+            pokemon.NationalDexNumber = request.NationalDexNumber;
+            pokemon.PokemonName = request.PokemonName;
+            pokemon.HPBaseStat = request.HPBaseStat;
+            pokemon.ATKBaseStat = request.ATKBaseStat;
+            pokemon.DEFBaseStat = request.DEFBaseStat;
+            pokemon.SPATKBaseStat = request.SPATKBaseStat;
+            pokemon.SPDEFBaseStat = request.SPDEFBaseStat;
+            pokemon.SPDBaseStat = request.SPDBaseStat;
+
+            _context.Pokemon.Add(pokemon);
+
+            _context.SaveChanges();
+
+            return pokemon;
+        }
     }
 }

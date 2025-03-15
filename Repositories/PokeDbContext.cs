@@ -6,5 +6,6 @@ namespace POKEMONSEMAPI.Repositories
     {
         public PokeDbContext(DbContextOptions<PokeDbContext> options) : base(options) { }
         public DbSet<Pokemon> Pokemon { get; set; }
+        public DbSet<PokeDexEntry> PokeDexEntries{get; set;}
     }
 }

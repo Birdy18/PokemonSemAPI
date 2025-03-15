@@ -166,3 +166,4 @@ C:\CIS106PROJECTS\PokemonSemAPI\obj\Debug\net8.0\refint\PokemonSemAPI.dll
 C:\CIS106PROJECTS\PokemonSemAPI\obj\Debug\net8.0\PokemonSemAPI.pdb
 C:\CIS106PROJECTS\PokemonSemAPI\obj\Debug\net8.0\PokemonSemAPI.genruntimeconfig.cache
 C:\CIS106PROJECTS\PokemonSemAPI\obj\Debug\net8.0\ref\PokemonSemAPI.dll
+C:\CIS106PROJECTS\PokemonSemAPI\obj\Debug\net8.0\PokemonSemAPI.sourcelink.json

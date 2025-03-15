@@ -1,13 +1,13 @@
 namespace POKEMONSEMAPI.Models.Requests {
     public class PokemonCreateRequest {
+        public int ID{get; set;}
         public int NationalDexNumber{get; set;}
         public string? PokemonName{get;set;}
-        public List<HP> health{get; set;}
-        public List<Attack> attack{get; set;}
-        public List<Defense> defense{get; set;}
-        public List<SpecialAttack> specialAttack{get; set;}
-        public List<SpecialDefense> specialDefense{get; set;}
-        public List<Speed> speed {get; set;}
-        public List<PokemonMove> moves{get; set;} = [];
+        public int HPBaseStat{get; set;}
+        public int ATKBaseStat{get; set;}
+        public int DEFBaseStat{get; set;}
+        public int SPATKBaseStat{get; set;}
+        public int SPDEFBaseStat{get; set;}
+        public int SPDBaseStat{get; set;}
     }
 }
