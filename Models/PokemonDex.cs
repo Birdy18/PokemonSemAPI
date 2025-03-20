@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 
 namespace POKEMONSEMAPI.Models{
-public class Pokemon
+public class PokemonDex
     {        
         public int ID{get; set;}
         public int NationalDexNumber{get; set;}
@@ -13,7 +13,6 @@ public class Pokemon
         public int SPATKBaseStat{get; set;}
         public int SPDEFBaseStat{get; set;}
         public int SPDBaseStat{get; set;}
-
-        public List<PokeDexEntry> PokeDexEntries{get; set;}
+    
     }
 }

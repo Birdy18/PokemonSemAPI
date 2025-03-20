@@ -16,8 +16,8 @@ namespace POKEMONSEMAPI.Controllers
         }
         
         [HttpPost("", Name = "AddPokemon")]
-        public Pokemon AddPokemon(PokemonCreateRequest request){
-            Pokemon pokemon = new Pokemon();
+        public PokemonDex AddPokemon(PokemonCreateRequest request){
+            PokemonDex pokemon = new PokemonDex();
             pokemon.ID = request.ID;
             pokemon.NationalDexNumber = request.NationalDexNumber;
             pokemon.PokemonName = request.PokemonName;
