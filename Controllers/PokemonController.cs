@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using POKEMONSEMAPI.Models;
 using POKEMONSEMAPI.Models.Requests;
 using POKEMONSEMAPI.Repositories;
@@ -33,6 +34,33 @@ namespace POKEMONSEMAPI.Controllers
             _context.SaveChanges();
 
             return pokemon;
+        }
+
+        [HttpPost("", Name = "CalculatePokemonStats")]
+        public PokemonInstance CalculatePokemonStats(PokemonInstanceCreateRequest request) {
+            //Mapping PokemonInstanceCreateRequest to the PokemonInstance
+            PokemonInstance pokemonInt = new PokemonInstance {
+                ID = request.PokemonInstanceID,
+                Nickname = request.Nickname,
+                PokemonLevel = request.PokemonLevel,
+                HPIV = request.HPIV,
+                ATKIV = request.ATKIV,
+                DEFIV = request.DEFIV,
+                SPATKIV = request.SPATKIV,
+                SPDEFIV = request.SPDEFIV,
+                SPDIV = request.SPDIV,
+                HPEV = request.HPEV,
+                ATKEV = request.ATKEV,
+                DEFEV = request.DEFEV,
+                SPATKEV = request.SPATKEV,
+                SPDEFEV = request.SPDEFEV,
+                SPDEV = request.SPDEV,
+            };
+                _context.InstPokemon.Add(pokemonInt);
+
+                _context.SaveChanges();
+
+                return pokemonInt;
         }
     }
 }
