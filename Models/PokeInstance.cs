@@ -28,6 +28,6 @@ namespace POKEMONSEMAPI.Models{
         public int SPDEV{get; set;}
 
         //Navigational Property
-        public List<PokemonDex> PokeSpecies {get; set;}
+        public PokemonDex PokemonDex{get; set;}
     }
 }

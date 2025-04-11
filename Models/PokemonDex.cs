@@ -20,6 +20,6 @@ public class PokemonDex
         public int PokemonIntID{get; set;}
 
         //Navigational Instance...
-        public PokemonInstance PokemonInstance {get; set;}
+        public List<PokemonInstance> PokemonInstance{get; set;}
     }
 }

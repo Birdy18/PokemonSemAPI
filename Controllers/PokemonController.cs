@@ -9,14 +9,15 @@ namespace POKEMONSEMAPI.Controllers
     [ApiController]
     public class PokemonController : ControllerBase
     {
-        private readonly PokeDbContext _context;
+        private readonly IPokemonRepository pokemonRepository;
+        //private readonly PokeDbContext _context;
         // Constructor to inject the DbContext
-        public PokemonController(PokeDbContext context)
+        public PokemonController(IPokemonRepository repository)
         {
-            _context = context;
+            pokemonRepository = repository;
         }
         
-        [HttpPost("", Name = "AddPokemon")]
+        [HttpPost("addPokemon", Name = "AddPokemon")]
         public PokemonDex AddPokemon(PokemonCreateRequest request){
             PokemonDex pokemon = new PokemonDex();
             pokemon.ID = request.ID;
@@ -29,14 +30,10 @@ namespace POKEMONSEMAPI.Controllers
             pokemon.SPDEFBaseStat = request.SPDEFBaseStat;
             pokemon.SPDBaseStat = request.SPDBaseStat;
 
-            _context.Pokemon.Add(pokemon);
-
-            _context.SaveChanges();
-
-            return pokemon;
+            return pokemonRepository.AddPokemontoDex(pokemon);
         }
 
-        [HttpPost("", Name = "CalculatePokemonStats")]
+        [HttpPost("calPokeStats", Name = "CalculatePokemonStats")]
         public PokemonInstance CalculatePokemonStats(PokemonInstanceCreateRequest request) {
             //Mapping PokemonInstanceCreateRequest to the PokemonInstance
             PokemonInstance pokemonInt = new PokemonInstance {
@@ -56,11 +53,8 @@ namespace POKEMONSEMAPI.Controllers
                 SPDEFEV = request.SPDEFEV,
                 SPDEV = request.SPDEV,
             };
-                _context.InstPokemon.Add(pokemonInt);
 
-                _context.SaveChanges();
-
-                return pokemonInt;
+                return pokemonRepository.CalculateStats(pokemonInt);
         }
     }
 }

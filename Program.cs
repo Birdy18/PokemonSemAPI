@@ -13,6 +13,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PokeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.AddScoped<IPokemonRepository, PokemonRepositoryEfImpl>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
