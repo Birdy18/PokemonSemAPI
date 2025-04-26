@@ -22,12 +22,17 @@ namespace POKEMONSEMAPI.Repositories{
         }
 
         //Adding the variant of the Pokemon to the collection, and saving the changes
-        public PokemonInstance CalculateStats(PokemonInstance pokeINT)
+        public PokemonInstance CalculateStats(PokemonDex pokeDEX, PokemonInstance pokeINT)
         {
-            PokemonStatsCalculationRequest.CalculatePokemonStats(pokeINT);
+            PokemonStatsCalculationRequest.CalculatePokemonStats(pokeDEX, pokeINT);
             dbContext.Pokemon.Add(pokeINT);
             dbContext.SaveChanges();
             return pokeINT;
+        }
+
+        public PokemonInstance CalculateStats(PokemonInstance pokemonINT)
+        {
+            throw new NotImplementedException();
         }
 
         public PokemonDex? SearchPokemonByNDN(PokemonDex NDN)

@@ -39,7 +39,6 @@ namespace POKEMONSEMAPI.Controllers
         public PokemonInstance CalculatePokemonStats(PokemonInstanceCreateRequest request) {
             //Mapping PokemonInstanceCreateRequest to the PokemonInstance
             PokemonInstance instance = new PokemonInstance {
-                ID = request.PokemonInstanceID,
                 Nickname = request.Nickname,
                 PokemonLevel = request.PokemonLevel,
                 HPIV = request.HPIV,
