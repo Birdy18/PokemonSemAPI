@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using POKEMONSEMAPI.Repositories;
 
@@ -10,9 +11,11 @@ using POKEMONSEMAPI.Repositories;
 namespace PokemonSemAPI.Migrations
 {
     [DbContext(typeof(PokeDbContext))]
-    partial class PokeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250418004447_PokeCreate")]
+    partial class PokeCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,6 +42,9 @@ namespace PokemonSemAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("NationalDexNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PokemonIntID")
                         .HasColumnType("int");
 
                     b.Property<string>("PokemonName")

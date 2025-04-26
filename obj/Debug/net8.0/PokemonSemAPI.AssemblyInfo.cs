@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokemonSemAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30498b9c925057427b87212ac75fddd1ffde5c51")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42510d35b30588072d19f2d5fc144b163250ba92")]
 [assembly: System.Reflection.AssemblyProductAttribute("PokemonSemAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PokemonSemAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.SignalR.Protocol;
 using POKEMONSEMAPI.Models;
 
 namespace POKEMONSEMAPI.Repositories{
@@ -15,7 +16,7 @@ namespace POKEMONSEMAPI.Repositories{
         //Adding the Pokemon Dex entry to the collection, and saving the changes
         public PokemonDex AddPokemontoDex(PokemonDex pokemonDex)
         {
-            dbContext.Pokemon.Add(pokemonDex);
+            dbContext.PokeDexEntries.Add(pokemonDex);
             dbContext.SaveChanges();
             return pokemonDex;
         }
@@ -23,14 +24,15 @@ namespace POKEMONSEMAPI.Repositories{
         //Adding the variant of the Pokemon to the collection, and saving the changes
         public PokemonInstance CalculateStats(PokemonInstance pokeINT)
         {
-            dbContext.InstPokemon.Add(pokeINT);
+            PokemonStatsCalculationRequest.CalculatePokemonStats(pokeINT);
+            dbContext.Pokemon.Add(pokeINT);
             dbContext.SaveChanges();
             return pokeINT;
         }
 
         public PokemonDex? SearchPokemonByNDN(PokemonDex NDN)
         {
-            return dbContext.Pokemon.Find(NDN);
+            return dbContext.PokeDexEntries.Find(NDN);
         }
     }
 }

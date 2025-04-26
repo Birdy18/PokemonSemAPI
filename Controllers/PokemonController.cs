@@ -1,8 +1,11 @@
+using System.Data.Common;
+using System.Collections.Immutable;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using POKEMONSEMAPI.Models;
 using POKEMONSEMAPI.Models.Requests;
 using POKEMONSEMAPI.Repositories;
+using Microsoft.Extensions.Options;
 namespace POKEMONSEMAPI.Controllers
 {
     [Route("[controller]")]
@@ -20,7 +23,6 @@ namespace POKEMONSEMAPI.Controllers
         [HttpPost("addPokemon", Name = "AddPokemon")]
         public PokemonDex AddPokemon(PokemonCreateRequest request){
             PokemonDex pokemon = new PokemonDex();
-            pokemon.ID = request.ID;
             pokemon.NationalDexNumber = request.NationalDexNumber;
             pokemon.PokemonName = request.PokemonName;
             pokemon.HPBaseStat = request.HPBaseStat;
@@ -36,7 +38,7 @@ namespace POKEMONSEMAPI.Controllers
         [HttpPost("calPokeStats", Name = "CalculatePokemonStats")]
         public PokemonInstance CalculatePokemonStats(PokemonInstanceCreateRequest request) {
             //Mapping PokemonInstanceCreateRequest to the PokemonInstance
-            PokemonInstance pokemonInt = new PokemonInstance {
+            PokemonInstance instance = new PokemonInstance {
                 ID = request.PokemonInstanceID,
                 Nickname = request.Nickname,
                 PokemonLevel = request.PokemonLevel,
@@ -53,8 +55,7 @@ namespace POKEMONSEMAPI.Controllers
                 SPDEFEV = request.SPDEFEV,
                 SPDEV = request.SPDEV,
             };
-
-                return pokemonRepository.CalculateStats(pokemonInt);
+                return pokemonRepository.CalculateStats(instance);
         }
     }
 }

@@ -4,6 +4,8 @@ namespace POKEMONSEMAPI.Models{
     /// Pokemon
     /// </summary>
     public class PokemonInstance{
+        internal PokemonDex pokemonDex;
+
         public int ID{get; set;}
         public string Nickname{get; set;}
         public int PokemonLevel{get; set;} = 1;

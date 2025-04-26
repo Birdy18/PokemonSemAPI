@@ -1,6 +1,5 @@
 namespace POKEMONSEMAPI.Models.Requests {
     public class PokemonCreateRequest {
-        public int ID{get; set;}
         public int NationalDexNumber{get; set;}
         public string? PokemonName{get;set;}
         public int HPBaseStat{get; set;}

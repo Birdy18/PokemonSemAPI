@@ -16,9 +16,6 @@ public class PokemonDex
         public int SPDEFBaseStat{get; set;}
         public int SPDBaseStat{get; set;}
 
-        //Foreign Key
-        public int PokemonIntID{get; set;}
-
         //Navigational Instance...
         public List<PokemonInstance> PokemonInstance{get; set;}
     }
