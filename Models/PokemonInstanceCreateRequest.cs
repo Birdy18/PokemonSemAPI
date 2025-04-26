@@ -2,8 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace POKEMONSEMAPI.Models.Requests{
     public class PokemonInstanceCreateRequest{
-        [Required]
-        public int PokemonInstanceID{get; set;}
 
         [Required]
         [MinLength(5)]
@@ -12,24 +10,6 @@ namespace POKEMONSEMAPI.Models.Requests{
 
         [Required]
         public int PokemonLevel{get; set;}
-
-        [Required]
-        public int HP{get; set;}
-
-        [Required]
-        public int Attack{get; set;}
-
-        [Required]
-        public int Defense{get; set;}
-
-        [Required]
-        public int SpAttack{get; set;}
-
-        [Required]
-        public int SpDefense{get; set;}
-
-        [Required]
-        public int Speed{get; set;}
 
         //HP Individual Value
         [Required]
