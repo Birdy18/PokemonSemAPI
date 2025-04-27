@@ -2,10 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace POKEMONSEMAPI.Models.Requests{
     public class PokemonInstanceCreateRequest{
-
-        [Required]
-        public PokemonDex DexNumber{get; set;}
-
+        
         [Required]
         [MinLength(5)]
         [MaxLength(12)]

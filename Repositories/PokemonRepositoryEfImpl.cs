@@ -14,7 +14,7 @@ namespace POKEMONSEMAPI.Repositories{
         }
 
         //Adding the Pokemon Dex entry to the collection, and saving the changes
-        public PokemonDex AddPokemontoDex(PokemonDex pokemonDex)
+        public PokemonDex? AddPokemontoDex(PokemonDex pokemonDex)
         {
             dbContext.PokeDexEntries.Add(pokemonDex);
             dbContext.SaveChanges();
@@ -22,9 +22,9 @@ namespace POKEMONSEMAPI.Repositories{
         }
 
         //Adding the variant of the Pokemon to the collection, and saving the changes
-        public PokemonInstance CalculateStats(PokemonDex pokeDEX, PokemonInstance pokeINT)
+        public PokemonInstance? CalculatePokemonStats(PokemonInstance pokeINT)
         {
-            PokemonStatsCalculationRequest.CalculatePokemonStats(pokeDEX, pokeINT);
+            PokemonStatsCalculationRequest.CalculatePokemonStats(pokeINT);
             dbContext.Pokemon.Add(pokeINT);
             dbContext.SaveChanges();
             return pokeINT;

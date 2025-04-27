@@ -4,8 +4,7 @@ namespace POKEMONSEMAPI.Models{
 /// This class focuses on the basic attributes of the Pokemon species
 /// </summary>
 public class PokemonDex
-    {        
-        public int ID{get; set;}
+    {   
         public int NationalDexNumber{get; set;}
         public string? PokemonName{get;set;}
         public string? PokemonType{get; set;}

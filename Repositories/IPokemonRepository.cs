@@ -7,14 +7,14 @@ namespace POKEMONSEMAPI.Repositories{
         /// </summary>
         /// <param name="pokemonDex"></param>
         /// <returns>The Pokemon in the Dex, with stats and everything</returns>
-        PokemonDex AddPokemontoDex(PokemonDex pokemonDex);
+        PokemonDex? AddPokemontoDex(PokemonDex pokemonDex);
 
         /// <summary>
         /// Calculate the stats of the Pokemon
         /// </summary>
         /// <param name="pokemonINT"></param>
         /// <returns>The stats of the Pokemon</returns>
-        PokemonInstance CalculateStats(PokemonDex pokemonDex, PokemonInstance pokemonINT);
+        PokemonInstance? CalculatePokemonStats(PokemonInstance pokeINT);
 
         PokemonDex? SearchPokemonByNDN(PokemonDex NDN);
     }
