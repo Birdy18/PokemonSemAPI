@@ -30,11 +30,6 @@ namespace POKEMONSEMAPI.Repositories{
             return pokeINT;
         }
 
-        public PokemonInstance CalculateStats(PokemonInstance pokemonINT)
-        {
-            throw new NotImplementedException();
-        }
-
         public PokemonDex? SearchPokemonByNDN(PokemonDex NDN)
         {
             return dbContext.PokeDexEntries.Find(NDN);

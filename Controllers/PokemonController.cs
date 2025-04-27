@@ -36,7 +36,7 @@ namespace POKEMONSEMAPI.Controllers
         }
 
         [HttpPost("calPokeStats", Name = "CalculatePokemonStats")]
-        public PokemonInstance CalculatePokemonStats(PokemonInstanceCreateRequest request) {
+        public PokemonInstance CalculatePokemonStats(PokemonInstanceCreateRequest request, PokemonCreateRequest request1) {
             //Mapping PokemonInstanceCreateRequest to the PokemonInstance
             PokemonInstance instance = new PokemonInstance {
                 Nickname = request.Nickname,
@@ -54,7 +54,10 @@ namespace POKEMONSEMAPI.Controllers
                 SPDEFEV = request.SPDEFEV,
                 SPDEV = request.SPDEV,
             };
-                return pokemonRepository.CalculateStats(instance);
+            PokemonDex dex = new PokemonDex {
+                NationalDexNumber = request1.NationalDexNumber
+            };
+                return pokemonRepository.CalculateStats(dex, instance);
         }
     }
 }
