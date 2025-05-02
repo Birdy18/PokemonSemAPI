@@ -21,7 +21,7 @@ namespace POKEMONSEMAPI.Repositories{
             return pokemonDex;
         }
 
-        public PokemonInstance? AddPokemontoIntance(PokemonInstance pokemonInstance)
+        public PokemonInstance? AddPokemontoInstance(PokemonInstance pokemonInstance)
         {
             dbContext.Pokemon.Add(pokemonInstance);
             dbContext.SaveChanges();

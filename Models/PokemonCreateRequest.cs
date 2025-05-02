@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace POKEMONSEMAPI.Models.Requests {
     public class PokemonCreateRequest {
         [Required]
+        [Key]
         public int NationalDexNumber{get; set;}
         [Required]
         [MinLength(8)]
