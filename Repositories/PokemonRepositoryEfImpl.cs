@@ -21,6 +21,13 @@ namespace POKEMONSEMAPI.Repositories{
             return pokemonDex;
         }
 
+        public PokemonInstance? AddPokemontoIntance(PokemonInstance pokemonInstance)
+        {
+            dbContext.Pokemon.Add(pokemonInstance);
+            dbContext.SaveChanges();
+            return pokemonInstance;
+        }
+
         //Adding the variant of the Pokemon to the collection, and saving the changes
         public PokemonInstance? CalculatePokemonStats(PokemonInstance pokeINT)
         {
@@ -28,11 +35,6 @@ namespace POKEMONSEMAPI.Repositories{
             dbContext.Pokemon.Add(pokeINT);
             dbContext.SaveChanges();
             return pokeINT;
-        }
-
-        public PokemonDex? SearchPokemonByNDN(PokemonDex NDN)
-        {
-            return dbContext.PokeDexEntries.Find(NDN);
         }
     }
 }

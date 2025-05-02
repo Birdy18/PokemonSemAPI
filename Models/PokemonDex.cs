@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using Microsoft.EntityFrameworkCore;
 namespace POKEMONSEMAPI.Models{
 /// <summary>
 /// This class focuses on the basic attributes of the Pokemon species

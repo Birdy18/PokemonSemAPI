@@ -4,9 +4,9 @@ namespace POKEMONSEMAPI.Models.Requests{
     public class PokemonInstanceCreateRequest{
         
         [Required]
-        [MinLength(5)]
-        [MaxLength(12)]
-        public string Nickname{get; set;}
+        [MinLength(10)]
+        [MaxLength(40)]
+        public string BuildName{get; set;}
 
         [Required]
         public int PokemonLevel{get; set;}
