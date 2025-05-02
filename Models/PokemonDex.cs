@@ -6,6 +6,7 @@ namespace POKEMONSEMAPI.Models{
 /// </summary>
 public class PokemonDex
     {   
+        public int DexID{get; set;}
         public int NationalDexNumber{get; set;}
         public string? PokemonName{get;set;}
         public string? PokemonType{get; set;}

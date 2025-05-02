@@ -1,5 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace POKEMONSEMAPI.Models{
     public class PokemonStatsCalculationRequest{
+        [Required]
+        [Key]
+        public int StatsID{get; set;}
+        
         public static PokemonInstance CalculatePokemonStats(PokemonInstance instance) {
             instance.HP = (((2 * instance.PokemonDex.HPBaseStat + instance.HPIV + (instance.HPEV/4)) * instance.PokemonLevel)/100) + instance.PokemonLevel + 10;
             instance.Attack = (((2 * instance.PokemonDex.ATKBaseStat + instance.ATKIV + (instance.ATKEV/4)) * instance.PokemonLevel)/100) + 5;

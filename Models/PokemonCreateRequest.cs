@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace POKEMONSEMAPI.Models.Requests {
     public class PokemonCreateRequest {
+        [Key]
+        public int DexID{get; set;}
         [Required]
         [Key]
         public int NationalDexNumber{get; set;}
