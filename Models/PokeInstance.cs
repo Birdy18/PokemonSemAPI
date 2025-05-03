@@ -1,10 +1,14 @@
 
+using System.ComponentModel.DataAnnotations;
+
 namespace POKEMONSEMAPI.Models{
     /// <summary>
     /// Class where the stats are calculated for a specific...
     /// Pokemon
     /// </summary>
     public class PokemonInstance {
+        [Key]
+        public int ID{get; set;}
         public string Nickname{get; set;}
         public int PokemonLevel{get; set;} = 1;
         public int CurrentHP{get; set;}

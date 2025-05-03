@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 namespace POKEMONSEMAPI.Models{
@@ -6,7 +7,7 @@ namespace POKEMONSEMAPI.Models{
 /// </summary>
 public class PokemonDex
     {   
-        public int DexID{get; set;}
+        [Key]
         public int NationalDexNumber{get; set;}
         public string? PokemonName{get;set;}
         public string? PokemonType{get; set;}

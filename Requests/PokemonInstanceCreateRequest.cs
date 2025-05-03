@@ -3,9 +3,6 @@ using System.ComponentModel.DataAnnotations;
 namespace POKEMONSEMAPI.Models.Requests{
     public class PokemonInstanceCreateRequest{
         
-        [Key]
-        public int ID{get; set;}
-        
         [Required]
         [MinLength(10)]
         [MaxLength(40)]
