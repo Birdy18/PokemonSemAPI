@@ -27,14 +27,5 @@ namespace POKEMONSEMAPI.Repositories{
             dbContext.SaveChanges();
             return pokemonInstance;
         }
-
-        //Adding the variant of the Pokemon to the collection, and saving the changes
-        public PokemonInstance? CalculatePokemonStats(PokemonInstance pokeINT)
-        {
-            PokemonStatsCalculationRequest.CalculatePokemonStats(pokeINT);
-            dbContext.Pokemon.Add(pokeINT);
-            dbContext.SaveChanges();
-            return pokeINT;
-        }
     }
 }

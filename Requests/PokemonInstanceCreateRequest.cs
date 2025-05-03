@@ -2,11 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace POKEMONSEMAPI.Models.Requests{
     public class PokemonInstanceCreateRequest{
-        
         [Required]
         [MinLength(10)]
         [MaxLength(40)]
-        public string BuildName{get; set;}
+        public string? BuildName{get; set;}
 
         [Required]
         public int PokemonLevel{get; set;}

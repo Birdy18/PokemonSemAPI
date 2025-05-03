@@ -49,7 +49,7 @@ namespace POKEMONSEMAPI.Controllers
             instance.DEFIV = request.DEFIV;
             instance.SPATKIV = request.SPATKIV;
             instance.SPDEFIV = request.SPDEFIV;
-            instance.SPDIV = instance.SPDIV;
+            instance.SPDIV = request.SPDIV;
 
             return pokemonRepository.AddPokemontoInstance(instance);
             
@@ -58,10 +58,8 @@ namespace POKEMONSEMAPI.Controllers
         /*
         [HttpPost("calPokeStats", Name = "CalculatePokemonStats")]
         public PokemonStats CalculatePokemonStats(int PokeIntID) {
+            PokemonInstance instance = new PokemonInstance();
             //Mapping PokemonInstanceCreateRequest to the PokemonInstance
-            
-            PokemonInstance? instance = pokemonRepository.GetPokemonInstanceByID(PokeIntID);
-            PokemonInstance? dex = pokemonRepository.GetPokemonSpeciesByID(PokemonInstance.PokemonDex.NationalDexNumber);
             int HP = (((2 * instance.PokemonDex.HPBaseStat + instance.HPIV + (instance.HPEV/4)) * instance.PokemonLevel)/100) + instance.PokemonLevel + 10;
             int Attack = (((2 * instance.PokemonDex.ATKBaseStat + instance.ATKIV + (instance.ATKEV/4)) * instance.PokemonLevel)/100) + 5;
             int Defense = (((2 * instance.PokemonDex.DEFBaseStat + instance.DEFIV + (instance.DEFEV/4)) * instance.PokemonLevel)/100) + 5;

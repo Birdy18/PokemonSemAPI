@@ -15,6 +15,6 @@ namespace POKEMONSEMAPI.Repositories{
         /// </summary>
         /// <param name="pokemonINT"></param>
         /// <returns>The stats of the Pokemon</returns>
-        PokemonInstance? CalculatePokemonStats(PokemonInstance pokemonInstance);
+        //PokemonStats? CalculatePokemonStats(PokemonStats stats);
     }
 }
