@@ -21,11 +21,11 @@ namespace POKEMONSEMAPI.Repositories{
             return pokemonDex;
         }
 
-        public PokemonInstance? AddPokemontoInstance(PokemonInstance pokemonInstance)
+        public PokemonIndividual? AddPokemontoInstance(PokemonIndividual pokeIndividual)
         {
-            dbContext.Pokemon.Add(pokemonInstance);
+            dbContext.PokeIndividual.Add(pokeIndividual);
             dbContext.SaveChanges();
-            return pokemonInstance;
+            return pokeIndividual;
         }
     }
 }

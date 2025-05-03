@@ -14,6 +14,6 @@ namespace POKEMONSEMAPI.Models{
 
         //Navigational Path
         public PokemonDex dexID{get; set;}
-        public PokemonInstance intID{get; set;}
+        public PokemonIndividual intID{get; set;}
     }
 }

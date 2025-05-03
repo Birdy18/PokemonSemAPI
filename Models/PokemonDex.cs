@@ -19,6 +19,6 @@ public class PokemonDex
         public int SPDBaseStat{get; set;}
 
         //Navigational Instance...
-        public List<PokemonInstance> PokemonInstance{get; set;}
+        public List<PokemonIndividual> PokemonInstance{get; set;}
     }
 }

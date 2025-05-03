@@ -36,8 +36,8 @@ namespace POKEMONSEMAPI.Controllers
         }
 
         [HttpPost("addInstance", Name = "AddPokemonInstance")]
-        public PokemonInstance AddPokemonINT(PokemonInstanceCreateRequest request) {
-            PokemonInstance instance = new PokemonInstance();
+        public PokemonIndividual AddPokemonINT(PokemonInstanceCreateRequest request) {
+            PokemonIndividual instance = new PokemonIndividual();
             instance.HPEV = request.HPEV;
             instance.ATKEV = request.ATKEV;
             instance.DEFEV = request.DEFEV;

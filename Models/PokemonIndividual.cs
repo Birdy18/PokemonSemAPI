@@ -6,7 +6,7 @@ namespace POKEMONSEMAPI.Models{
     /// Class where the stats are calculated for a specific...
     /// Pokemon
     /// </summary>
-    public class PokemonInstance {
+    public class PokemonIndividual {
         [Key]
         public int ID{get; set;}
         public string Nickname{get; set;}
