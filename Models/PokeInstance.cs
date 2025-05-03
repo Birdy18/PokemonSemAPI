@@ -11,7 +11,6 @@ namespace POKEMONSEMAPI.Models{
         public int ID{get; set;}
         public string Nickname{get; set;}
         public int PokemonLevel{get; set;} = 1;
-        public int CurrentHP{get; set;}
         public int HP{get; set;}
         public int Attack{get; set;}
         public int Defense{get; set;}
