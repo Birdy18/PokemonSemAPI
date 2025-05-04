@@ -6,6 +6,7 @@ using POKEMONSEMAPI.Models;
 using POKEMONSEMAPI.Models.Requests;
 using POKEMONSEMAPI.Repositories;
 using Microsoft.Extensions.Options;
+using System.Security.Cryptography;
 namespace POKEMONSEMAPI.Controllers
 {
     [Route("[controller]")]
@@ -25,6 +26,7 @@ namespace POKEMONSEMAPI.Controllers
             PokemonDex pokemon = new PokemonDex();
             pokemon.NationalDexNumber = request.NationalDexNumber;
             pokemon.PokemonName = request.PokemonName;
+            pokemon.PokemonType = request.PokemonType;
             pokemon.HPBaseStat = request.HPBaseStat;
             pokemon.ATKBaseStat = request.ATKBaseStat;
             pokemon.DEFBaseStat = request.DEFBaseStat;
@@ -70,8 +72,8 @@ namespace POKEMONSEMAPI.Controllers
             pokemonRepository.DeletePokemonDexByNDN(pokemonDexToDelete);
         }
 
-        [HttpPost("addInstance", Name = "AddPokemonInstance")]
-        public PokemonIndividual AddPokemonINT(PokemonInstanceCreateRequest request) {
+        [HttpPost("addIndividual", Name = "AddPokemonIndividual")]
+        public PokemonIndividual AddPokemonIndividual(PokemonIndividualCreateRequest request) {
             PokemonIndividual instance = new PokemonIndividual();
             instance.BuildName = request.BuildName;
             instance.PokemonLevel = request.PokemonLevel;
@@ -88,33 +90,8 @@ namespace POKEMONSEMAPI.Controllers
             instance.SPDEFIV = request.SPDEFIV;
             instance.SPDIV = request.SPDIV;
 
-#pragma warning disable CS8603 // Possible null reference return.
             return pokemonRepository.AddPokemontoIndividual(instance);
-#pragma warning restore CS8603 // Possible null reference return.
             
         }
-
-        /*
-        [HttpPost("calPokeStats", Name = "CalculatePokemonStats")]
-        public PokemonStats CalculatePokemonStats(int PokeIntID) {
-            PokemonInstance instance = new PokemonInstance();
-            //Mapping PokemonInstanceCreateRequest to the PokemonInstance
-            int HP = (((2 * instance.PokemonDex.HPBaseStat + instance.HPIV + (instance.HPEV/4)) * instance.PokemonLevel)/100) + instance.PokemonLevel + 10;
-            int Attack = (((2 * instance.PokemonDex.ATKBaseStat + instance.ATKIV + (instance.ATKEV/4)) * instance.PokemonLevel)/100) + 5;
-            int Defense = (((2 * instance.PokemonDex.DEFBaseStat + instance.DEFIV + (instance.DEFEV/4)) * instance.PokemonLevel)/100) + 5;
-            int SpAttack = (((2 * instance.PokemonDex.SPATKBaseStat + instance.SPATKIV + (instance.SPATKEV/4)) * instance.PokemonLevel)/100) + 5;
-            int SpDefense = (((2 * instance.PokemonDex.SPDEFBaseStat + instance.SPDEFIV + (instance.SPDEFEV/4)) * instance.PokemonLevel)/100) + 5;
-            int Speed = (((2 * instance.PokemonDex.SPDBaseStat + instance.SPDIV + (instance.SPDEV/4)) * instance.PokemonLevel)/100) + 5;
-
-            return new PokemonStats{
-                HP = HP,
-                Attack = Attack,
-                Defense = Defense,
-                SpAttack = SpAttack,
-                SpDefense = SpDefense,
-                Speed = Speed
-            };
-        }
-        */
     }
 }

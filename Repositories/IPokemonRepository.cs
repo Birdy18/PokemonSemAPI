@@ -22,13 +22,5 @@ namespace POKEMONSEMAPI.Repositories{
         void DeletePokemonDexByNDN(PokemonDex pokemonDexToDelete);
 
         PokemonIndividual? AddPokemontoIndividual(PokemonIndividual pokeIndividual);
-
-
-        /// <summary>
-        /// Calculate the stats of the Pokemon
-        /// </summary>
-        /// <param name="pokemonINT"></param>
-        /// <returns>The stats of the Pokemon</returns>
-        //PokemonStats? CalculatePokemonStats(PokemonStats stats);
     }
 }
