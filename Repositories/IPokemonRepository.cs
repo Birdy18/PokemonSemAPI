@@ -1,4 +1,5 @@
 using POKEMONSEMAPI.Models;
+using POKEMONSEMAPI.Models.Requests;
 
 namespace POKEMONSEMAPI.Repositories{
     public interface IPokemonRepository{
@@ -8,7 +9,20 @@ namespace POKEMONSEMAPI.Repositories{
         /// <param name="pokemonDex"></param>
         /// <returns>The Pokemon in the Dex, with stats and everything</returns>
         PokemonDex? AddPokemontoDex(PokemonDex pokemonDex);
-        PokemonIndividual? AddPokemontoInstance(PokemonIndividual pokeIndividual);
+
+        /// <summary>
+        /// Get PokemonDex entry by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>The PokemonDex entry</returns>
+        PokemonDex? GetPokemonDexByNDN(int NDN);
+
+        PokemonDex UpdatePokemonDex(PokemonDex PokemonDexToUpdate);
+
+        void DeletePokemonDexByNDN(PokemonDex pokemonDexToDelete);
+
+        PokemonIndividual? AddPokemontoIndividual(PokemonIndividual pokeIndividual);
+
 
         /// <summary>
         /// Calculate the stats of the Pokemon

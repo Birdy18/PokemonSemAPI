@@ -10,6 +10,8 @@ namespace POKEMONSEMAPI.Models.Requests {
         [MaxLength(20)]
         public string? PokemonName{get;set;}
         [Required]
+        public string? PokemonType{get; set;}
+        [Required]
         public int HPBaseStat{get; set;}
         [Required]
         public int ATKBaseStat{get; set;}

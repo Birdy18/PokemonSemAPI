@@ -1,3 +1,4 @@
+using System.Data;
 using Microsoft.AspNetCore.SignalR.Protocol;
 using POKEMONSEMAPI.Models;
 
@@ -21,7 +22,24 @@ namespace POKEMONSEMAPI.Repositories{
             return pokemonDex;
         }
 
-        public PokemonIndividual? AddPokemontoInstance(PokemonIndividual pokeIndividual)
+        public PokemonDex? GetPokemonDexByNDN(int NDN)
+        {
+            return dbContext.PokeDexEntries.Find(NDN);
+        }
+
+        public PokemonDex? UpdatePokemonDex(PokemonDex pokemonDex)
+        {
+            dbContext.PokeDexEntries.Update(pokemonDex);
+            dbContext.SaveChanges();
+            return pokemonDex;
+        }
+
+        public void DeletePokemonDexByNDN(PokemonDex pokemonDexToDelete) {
+            dbContext.PokeDexEntries.Remove(pokemonDexToDelete);
+            dbContext.SaveChanges();
+        }
+
+        public PokemonIndividual? AddPokemontoIndividual(PokemonIndividual pokeIndividual)
         {
             dbContext.PokeIndividual.Add(pokeIndividual);
             dbContext.SaveChanges();

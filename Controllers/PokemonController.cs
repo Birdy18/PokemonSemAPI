@@ -35,9 +35,44 @@ namespace POKEMONSEMAPI.Controllers
             return pokemonRepository.AddPokemontoDex(pokemon);
         }
 
+        [HttpGet("{NDN}", Name = "GetPokemonDexByNDN")]
+        public PokemonDex? GetPokemonDexById(int NDN) {
+            //Returns the PokemonDex NationalDexNumber.  NULL if no NDN
+            return pokemonRepository.GetPokemonDexByNDN(NDN);
+        }
+
+        [HttpPut("{NDN}", Name = "UpdatePokmeonDexByNDN")]
+        public PokemonDex UpdatePokemonDexByNDN(int NDN, PokemonDexCreateRequest request) {
+            PokemonDex? pokemonDexToUpdate = pokemonRepository.GetPokemonDexByNDN(NDN);
+            if(pokemonDexToUpdate == null) {
+                throw new Exception($"PokemonDex {NDN} was not found.");
+            }
+            pokemonDexToUpdate.PokemonName = request.PokemonName;
+            pokemonDexToUpdate.PokemonType = request.PokemonType;
+            pokemonDexToUpdate.HPBaseStat = request.HPBaseStat;
+            pokemonDexToUpdate.ATKBaseStat = request.ATKBaseStat;
+            pokemonDexToUpdate.DEFBaseStat = request.DEFBaseStat;
+            pokemonDexToUpdate.SPATKBaseStat = request.SPATKBaseStat;
+            pokemonDexToUpdate.SPDEFBaseStat = request.SPDEFBaseStat;
+            pokemonDexToUpdate.SPDBaseStat = request.SPDBaseStat;
+            
+            return pokemonRepository.UpdatePokemonDex(pokemonDexToUpdate);
+        }
+
+        [HttpDelete("{NDN}", Name = "DeletePokemonDexByNDN")]
+        public void DeletePokemonDexByNDN(int NDN) {
+            PokemonDex? pokemonDexToDelete = pokemonRepository.GetPokemonDexByNDN(NDN);
+            if(pokemonDexToDelete == null) {
+                throw new Exception($"PokemonDex {NDN} is not found.");
+            }
+            pokemonRepository.DeletePokemonDexByNDN(pokemonDexToDelete);
+        }
+
         [HttpPost("addInstance", Name = "AddPokemonInstance")]
         public PokemonIndividual AddPokemonINT(PokemonInstanceCreateRequest request) {
             PokemonIndividual instance = new PokemonIndividual();
+            instance.BuildName = request.BuildName;
+            instance.PokemonLevel = request.PokemonLevel;
             instance.HPEV = request.HPEV;
             instance.ATKEV = request.ATKEV;
             instance.DEFEV = request.DEFEV;
@@ -51,7 +86,7 @@ namespace POKEMONSEMAPI.Controllers
             instance.SPDEFIV = request.SPDEFIV;
             instance.SPDIV = request.SPDIV;
 
-            return pokemonRepository.AddPokemontoInstance(instance);
+            return pokemonRepository.AddPokemontoIndividual(instance);
             
         }
 
