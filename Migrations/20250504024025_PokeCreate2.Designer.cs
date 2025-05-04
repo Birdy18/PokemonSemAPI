@@ -11,8 +11,8 @@ using POKEMONSEMAPI.Repositories;
 namespace PokemonSemAPI.Migrations
 {
     [DbContext(typeof(PokeDbContext))]
-    [Migration("20250503185318_PokeCreate3")]
-    partial class PokeCreate3
+    [Migration("20250504024025_PokeCreate2")]
+    partial class PokeCreate2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,7 +61,7 @@ namespace PokemonSemAPI.Migrations
                     b.ToTable("PokeDexEntries");
                 });
 
-            modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonInstance", b =>
+            modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonIndividual", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -77,6 +77,9 @@ namespace PokemonSemAPI.Migrations
 
                     b.Property<int>("Attack")
                         .HasColumnType("int");
+
+                    b.Property<string>("BuildName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DEFEV")
                         .HasColumnType("int");
@@ -96,11 +99,7 @@ namespace PokemonSemAPI.Migrations
                     b.Property<int>("HPIV")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nickname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PokemonDexNationalDexNumber")
+                    b.Property<int?>("PokemonDexNationalDexNumber")
                         .HasColumnType("int");
 
                     b.Property<int>("PokemonLevel")
@@ -137,16 +136,14 @@ namespace PokemonSemAPI.Migrations
 
                     b.HasIndex("PokemonDexNationalDexNumber");
 
-                    b.ToTable("Pokemon");
+                    b.ToTable("PokeIndividual");
                 });
 
-            modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonInstance", b =>
+            modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonIndividual", b =>
                 {
                     b.HasOne("POKEMONSEMAPI.Models.PokemonDex", "PokemonDex")
                         .WithMany("PokemonInstance")
-                        .HasForeignKey("PokemonDexNationalDexNumber")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PokemonDexNationalDexNumber");
 
                     b.Navigation("PokemonDex");
                 });

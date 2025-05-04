@@ -9,7 +9,7 @@ namespace POKEMONSEMAPI.Models{
     public class PokemonIndividual {
         [Key]
         public int ID{get; set;}
-        public string BuildName{get; set;}
+        public string? BuildName{get; set;}
         public int PokemonLevel{get; set;} = 1;
         public int HP{get; set;}
         public int Attack{get; set;}
@@ -31,6 +31,6 @@ namespace POKEMONSEMAPI.Models{
         public int SPDEV{get; set;}
 
         //Navigational Property
-        public PokemonDex PokemonDex{get; set;}
+        public PokemonDex? PokemonDex{get; set;}
     }
 }

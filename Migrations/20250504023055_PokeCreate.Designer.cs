@@ -11,8 +11,8 @@ using POKEMONSEMAPI.Repositories;
 namespace PokemonSemAPI.Migrations
 {
     [DbContext(typeof(PokeDbContext))]
-    [Migration("20250503225001_PokeCreate4")]
-    partial class PokeCreate4
+    [Migration("20250504023055_PokeCreate")]
+    partial class PokeCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,6 +78,10 @@ namespace PokemonSemAPI.Migrations
                     b.Property<int>("Attack")
                         .HasColumnType("int");
 
+                    b.Property<string>("BuildName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("DEFEV")
                         .HasColumnType("int");
 
@@ -95,10 +99,6 @@ namespace PokemonSemAPI.Migrations
 
                     b.Property<int>("HPIV")
                         .HasColumnType("int");
-
-                    b.Property<string>("Nickname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PokemonDexNationalDexNumber")
                         .HasColumnType("int");
@@ -137,7 +137,7 @@ namespace PokemonSemAPI.Migrations
 
                     b.HasIndex("PokemonDexNationalDexNumber");
 
-                    b.ToTable("Pokemon");
+                    b.ToTable("PokeIndividual");
                 });
 
             modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonIndividual", b =>

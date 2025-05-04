@@ -5,7 +5,7 @@
 namespace PokemonSemAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class PokeCreate1 : Migration
+    public partial class PokeCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,14 +31,13 @@ namespace PokemonSemAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Pokemon",
+                name: "PokeIndividual",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nickname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BuildName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PokemonLevel = table.Column<int>(type: "int", nullable: false),
-                    CurrentHP = table.Column<int>(type: "int", nullable: false),
                     HP = table.Column<int>(type: "int", nullable: false),
                     Attack = table.Column<int>(type: "int", nullable: false),
                     Defense = table.Column<int>(type: "int", nullable: false),
@@ -61,9 +60,9 @@ namespace PokemonSemAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pokemon", x => x.ID);
+                    table.PrimaryKey("PK_PokeIndividual", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Pokemon_PokeDexEntries_PokemonDexNationalDexNumber",
+                        name: "FK_PokeIndividual_PokeDexEntries_PokemonDexNationalDexNumber",
                         column: x => x.PokemonDexNationalDexNumber,
                         principalTable: "PokeDexEntries",
                         principalColumn: "NationalDexNumber",
@@ -71,8 +70,8 @@ namespace PokemonSemAPI.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Pokemon_PokemonDexNationalDexNumber",
-                table: "Pokemon",
+                name: "IX_PokeIndividual_PokemonDexNationalDexNumber",
+                table: "PokeIndividual",
                 column: "PokemonDexNationalDexNumber");
         }
 
@@ -80,7 +79,7 @@ namespace PokemonSemAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Pokemon");
+                name: "PokeIndividual");
 
             migrationBuilder.DropTable(
                 name: "PokeDexEntries");
