@@ -91,7 +91,7 @@ namespace SemesterProject.Controllers
             return pokemonRepository.AddPokemontoIndividual(instance);
         }
 
-        [HttpGet("{id}", Name = "GetPokemonIndividualById")]
+        [HttpGet("/pokemon-individual/{id}", Name = "GetPokemonIndividualById")]
         public PokemonIndividual? GetPokemonIndividualById(int id) {
             return pokemonRepository.GetPokemonIndividualById(id);
         }
