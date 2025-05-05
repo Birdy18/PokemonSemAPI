@@ -1,13 +1,15 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
-namespace POKESEMAPIDatabase.Models{
+namespace SemesterProject.Models{
 /// <summary>
 /// This class focuses on the basic attributes of the Pokemon species
 /// </summary>
 public class PokemonDex
     {   
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int NationalDexNumber{get; set;}
         public string? PokemonName{get;set;}
         public string? PokemonType{get; set;}

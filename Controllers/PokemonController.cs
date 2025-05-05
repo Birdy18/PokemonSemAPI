@@ -2,12 +2,12 @@ using System.Data.Common;
 using System.Collections.Immutable;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using POKESEMAPIDatabase.Models;
-using POKESEMAPIDatabase.Models.Requests;
-using POKESEMAPIDatabase.Repositories;
+using SemesterProject.Models;
+using SemesterProject.Models.Requests;
+using SemesterProject.Repositories;
 using Microsoft.Extensions.Options;
 using System.Security.Cryptography;
-namespace POKESEMAPIDatabase.Controllers
+namespace SemesterProject.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -89,7 +89,11 @@ namespace POKESEMAPIDatabase.Controllers
             instance.SPDIV = request.SPDIV;
 
             return pokemonRepository.AddPokemontoIndividual(instance);
-            
+        }
+
+        [HttpGet("{id}", Name = "GetPokemonIndividualById")]
+        public PokemonIndividual? GetPokemonIndividualById(int id) {
+            return pokemonRepository.GetPokemonIndividualById(id);
         }
     }
 }

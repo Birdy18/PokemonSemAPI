@@ -1,8 +1,8 @@
 using System.Data;
 using Microsoft.AspNetCore.SignalR.Protocol;
-using POKESEMAPIDatabase.Models;
+using SemesterProject.Models;
 
-namespace POKESEMAPIDatabase.Repositories{
+namespace SemesterProject.Repositories{
     public class PokemonRepositoryEfImpl : IPokemonRepository {
         private readonly PokeDbContext dbContext;
 
@@ -44,6 +44,10 @@ namespace POKESEMAPIDatabase.Repositories{
             dbContext.PokeIndividual.Add(pokeIndividual);
             dbContext.SaveChanges();
             return pokeIndividual;
+        }
+
+        public PokemonIndividual? GetPokemonIndividualById(int id) {
+            return dbContext.PokeIndividual.Find(id);
         }
     }
 }

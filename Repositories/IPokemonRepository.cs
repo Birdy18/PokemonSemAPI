@@ -1,7 +1,7 @@
-using POKESEMAPIDatabase.Models;
-using POKESEMAPIDatabase.Models.Requests;
+using SemesterProject.Models;
+using SemesterProject.Models.Requests;
 
-namespace POKESEMAPIDatabase.Repositories{
+namespace SemesterProject.Repositories{
     public interface IPokemonRepository{
         /// <summary>
         /// Adds a new Pokemon to the Dex
@@ -22,5 +22,7 @@ namespace POKESEMAPIDatabase.Repositories{
         void DeletePokemonDexByNDN(PokemonDex pokemonDexToDelete);
 
         PokemonIndividual? AddPokemontoIndividual(PokemonIndividual pokeIndividual);
+
+        PokemonIndividual? GetPokemonIndividualById(int id);
     }
 }

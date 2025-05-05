@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
-namespace POKESEMAPIDatabase.Models.Requests {
+namespace SemesterProject.Models.Requests {
     public class PokemonDexCreateRequest {
         [Required]
         public int NationalDexNumber{get; set;}

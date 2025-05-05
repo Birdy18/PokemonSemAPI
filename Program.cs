@@ -1,6 +1,6 @@
 using CIS106ExceptionHandling.configurations;
 using Microsoft.EntityFrameworkCore;
-using POKESEMAPIDatabase.Repositories;
+using SemesterProject.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

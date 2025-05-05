@@ -1,4 +1,4 @@
-namespace POKESEMAPIDatabase.Exceptions {
+namespace SemesterProject.Exceptions {
 
     public class ErrorDetails {
         public int StatusCode{get; set;}

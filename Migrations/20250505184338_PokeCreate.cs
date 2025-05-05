@@ -14,8 +14,7 @@ namespace PokemonSemAPI.Migrations
                 name: "PokeDexEntries",
                 columns: table => new
                 {
-                    NationalDexNumber = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NationalDexNumber = table.Column<int>(type: "int", nullable: false),
                     PokemonName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PokemonType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HPBaseStat = table.Column<int>(type: "int", nullable: false),

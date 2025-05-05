@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Net;
-using POKESEMAPIDatabase.Exceptions;
+using SemesterProject.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 
 namespace CIS106ExceptionHandling.configurations {

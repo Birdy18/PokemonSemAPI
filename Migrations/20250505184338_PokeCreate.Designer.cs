@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using POKESEMAPIDatabase.Repositories;
+using SemesterProject.Repositories;
 
 #nullable disable
 
 namespace PokemonSemAPI.Migrations
 {
     [DbContext(typeof(PokeDbContext))]
-    [Migration("20250505171401_PokeCreate")]
+    [Migration("20250505184338_PokeCreate")]
     partial class PokeCreate
     {
         /// <inheritdoc />
@@ -24,13 +24,10 @@ namespace PokemonSemAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("POKESEMAPIDatabase.Models.PokemonDex", b =>
+            modelBuilder.Entity("SemesterProject.Models.PokemonDex", b =>
                 {
                     b.Property<int>("NationalDexNumber")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NationalDexNumber"));
 
                     b.Property<int>("ATKBaseStat")
                         .HasColumnType("int");
@@ -61,7 +58,7 @@ namespace PokemonSemAPI.Migrations
                     b.ToTable("PokeDexEntries");
                 });
 
-            modelBuilder.Entity("POKESEMAPIDatabase.Models.PokemonIndividual", b =>
+            modelBuilder.Entity("SemesterProject.Models.PokemonIndividual", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -139,16 +136,16 @@ namespace PokemonSemAPI.Migrations
                     b.ToTable("PokeIndividual");
                 });
 
-            modelBuilder.Entity("POKESEMAPIDatabase.Models.PokemonIndividual", b =>
+            modelBuilder.Entity("SemesterProject.Models.PokemonIndividual", b =>
                 {
-                    b.HasOne("POKESEMAPIDatabase.Models.PokemonDex", "PokemonDex")
+                    b.HasOne("SemesterProject.Models.PokemonDex", "PokemonDex")
                         .WithMany("PokemonInstance")
                         .HasForeignKey("PokemonDexNationalDexNumber");
 
                     b.Navigation("PokemonDex");
                 });
 
-            modelBuilder.Entity("POKESEMAPIDatabase.Models.PokemonDex", b =>
+            modelBuilder.Entity("SemesterProject.Models.PokemonDex", b =>
                 {
                     b.Navigation("PokemonInstance");
                 });
