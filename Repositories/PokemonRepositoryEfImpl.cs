@@ -60,5 +60,11 @@ namespace SemesterProject.Repositories{
             dbContext.PokeIndividual.Remove(pokemonIndvToDelete);
             dbContext.SaveChanges();
         }
+
+        public PokemonIndividual? CalculatePokemonStats(PokemonIndividual indv) {
+            dbContext.PokeIndividual.Update(indv);
+            dbContext.SaveChanges();
+            return indv;
+        }
     }
 }

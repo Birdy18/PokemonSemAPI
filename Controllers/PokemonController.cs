@@ -128,5 +128,32 @@ namespace SemesterProject.Controllers
             }
             pokemonRepository.DeletePokemonIndvById(pokeIndvToDelete);
         }
+
+        [HttpPut("/pokemon-individual/stats", Name = "CalculatePokemonStats")]
+        public PokemonIndividual? CalculatePokemonStats(int NDN, int id, PokemonIndividual indv) {
+            PokemonDex pokemonDex = pokemonRepository.GetPokemonDexByNDN(NDN);
+            if(pokemonDex == null) {
+                throw new Exception($"PokemonDex {NDN} was not found.");
+            }
+            PokemonIndividual pokemonIndividual = pokemonRepository.GetPokemonIndividualById(id);
+            if(pokemonIndividual == null) {
+                throw new Exception($"PokemonIndividual {id} was not found.");
+            }
+            int HP = (((2 * indv.PokemonDex.HPBaseStat + indv.HPIV + (indv.HPEV/4)) * indv.PokemonLevel)/100) + indv.PokemonLevel + 10;
+            int Attack = (((2 * indv.PokemonDex.ATKBaseStat + indv.ATKIV + (indv.ATKEV/4)) * indv.PokemonLevel)/100) + 5;
+            int Defense = (((2 * indv.PokemonDex.DEFBaseStat + indv.DEFIV + (indv.DEFEV/4)) * indv.PokemonLevel)/100) + 5;
+            int SpAttack = (((2 * indv.PokemonDex.SPATKBaseStat + indv.SPATKIV + (indv.SPATKEV/4)) * indv.PokemonLevel)/100) + 5;
+            int SpDefense = (((2 * indv.PokemonDex.SPDEFBaseStat + indv.SPDEFIV + (indv.SPDEFEV/4)) * indv.PokemonLevel)/100) + 5;
+            int Speed = (((2 * indv.PokemonDex.SPDBaseStat + indv.SPDIV + (indv.SPDEV/4)) * indv.PokemonLevel)/100) + 5;
+
+            return new PokemonIndividual{
+                HP = indv.HP,
+                Attack = indv.Attack,
+                Defense = indv.Defense,
+                SpAttack = indv.SpAttack,
+                SpDefense = indv.SpDefense,
+                Speed = indv.Speed
+            };
+        }
     }
 }
