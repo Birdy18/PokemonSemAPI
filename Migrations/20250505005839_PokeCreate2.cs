@@ -5,7 +5,7 @@
 namespace PokemonSemAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class PokeCreate3 : Migration
+    public partial class PokeCreate2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

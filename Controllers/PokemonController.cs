@@ -34,9 +34,7 @@ namespace POKEMONSEMAPI.Controllers
             pokemon.SPDEFBaseStat = request.SPDEFBaseStat;
             pokemon.SPDBaseStat = request.SPDBaseStat;
 
-#pragma warning disable CS8603 // Possible null reference return.
             return pokemonRepository.AddPokemontoDex(pokemon);
-#pragma warning restore CS8603 // Possible null reference return.
         }
 
         [HttpGet("{NDN}", Name = "GetPokemonDexByNDN")]

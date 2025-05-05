@@ -36,7 +36,7 @@ namespace PokemonSemAPI.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BuildName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BuildName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PokemonLevel = table.Column<int>(type: "int", nullable: false),
                     HP = table.Column<int>(type: "int", nullable: false),
                     Attack = table.Column<int>(type: "int", nullable: false),
@@ -56,7 +56,7 @@ namespace PokemonSemAPI.Migrations
                     SPATKEV = table.Column<int>(type: "int", nullable: false),
                     SPDEFEV = table.Column<int>(type: "int", nullable: false),
                     SPDEV = table.Column<int>(type: "int", nullable: false),
-                    PokemonDexNationalDexNumber = table.Column<int>(type: "int", nullable: false)
+                    PokemonDexNationalDexNumber = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -65,8 +65,7 @@ namespace PokemonSemAPI.Migrations
                         name: "FK_PokeIndividual_PokeDexEntries_PokemonDexNationalDexNumber",
                         column: x => x.PokemonDexNationalDexNumber,
                         principalTable: "PokeDexEntries",
-                        principalColumn: "NationalDexNumber",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "NationalDexNumber");
                 });
 
             migrationBuilder.CreateIndex(

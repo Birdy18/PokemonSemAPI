@@ -11,7 +11,7 @@ using POKEMONSEMAPI.Repositories;
 namespace PokemonSemAPI.Migrations
 {
     [DbContext(typeof(PokeDbContext))]
-    [Migration("20250504024025_PokeCreate2")]
+    [Migration("20250505005839_PokeCreate2")]
     partial class PokeCreate2
     {
         /// <inheritdoc />

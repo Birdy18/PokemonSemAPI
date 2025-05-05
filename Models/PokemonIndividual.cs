@@ -10,7 +10,7 @@ namespace POKEMONSEMAPI.Models{
         [Key]
         public int ID{get; set;}
         public string? BuildName{get; set;}
-        public int PokemonLevel{get; set;} = 1;
+        public int PokemonLevel{get; set;}
         public int HP{get; set;}
         public int Attack{get; set;}
         public int Defense{get; set;}

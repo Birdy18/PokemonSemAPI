@@ -11,7 +11,7 @@ using POKEMONSEMAPI.Repositories;
 namespace PokemonSemAPI.Migrations
 {
     [DbContext(typeof(PokeDbContext))]
-    [Migration("20250504023055_PokeCreate")]
+    [Migration("20250504201244_PokeCreate")]
     partial class PokeCreate
     {
         /// <inheritdoc />
@@ -79,7 +79,6 @@ namespace PokemonSemAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("BuildName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DEFEV")
@@ -100,7 +99,7 @@ namespace PokemonSemAPI.Migrations
                     b.Property<int>("HPIV")
                         .HasColumnType("int");
 
-                    b.Property<int>("PokemonDexNationalDexNumber")
+                    b.Property<int?>("PokemonDexNationalDexNumber")
                         .HasColumnType("int");
 
                     b.Property<int>("PokemonLevel")
@@ -144,9 +143,7 @@ namespace PokemonSemAPI.Migrations
                 {
                     b.HasOne("POKEMONSEMAPI.Models.PokemonDex", "PokemonDex")
                         .WithMany("PokemonInstance")
-                        .HasForeignKey("PokemonDexNationalDexNumber")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PokemonDexNationalDexNumber");
 
                     b.Navigation("PokemonDex");
                 });
