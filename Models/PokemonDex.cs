@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
-namespace POKEMONSEMAPI.Models{
+namespace POKESEMAPIDatabase.Models{
 /// <summary>
 /// This class focuses on the basic attributes of the Pokemon species
 /// </summary>

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace POKEMONSEMAPI.Models.Requests{
+namespace POKESEMAPIDatabase.Models.Requests{
     public class PokemonIndividualCreateRequest{
         [Required]
         public string? BuildName{get; set;}

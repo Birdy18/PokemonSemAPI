@@ -1,7 +1,7 @@
-using POKEMONSEMAPI.Models;
-using POKEMONSEMAPI.Models.Requests;
+using POKESEMAPIDatabase.Models;
+using POKESEMAPIDatabase.Models.Requests;
 
-namespace POKEMONSEMAPI.Repositories{
+namespace POKESEMAPIDatabase.Repositories{
     public interface IPokemonRepository{
         /// <summary>
         /// Adds a new Pokemon to the Dex

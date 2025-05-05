@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using POKEMONSEMAPI.Models;
-namespace POKEMONSEMAPI.Repositories
+using POKESEMAPIDatabase.Models;
+namespace POKESEMAPIDatabase.Repositories
 {
     public class PokeDbContext : DbContext
     {

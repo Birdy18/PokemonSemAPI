@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace POKEMONSEMAPI.Exceptions {
+namespace POKESEMAPIDatabase.Exceptions {
     public class InvalidInputException : Exception {
         public ModelStateDictionary ModelState {get; set;}
 

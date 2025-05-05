@@ -1,7 +1,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace POKEMONSEMAPI.Models{
+namespace POKESEMAPIDatabase.Models{
     /// <summary>
     /// Class where the stats are calculated for a specific...
     /// Pokemon

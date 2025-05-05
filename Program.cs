@@ -1,6 +1,6 @@
 using CIS106ExceptionHandling.configurations;
 using Microsoft.EntityFrameworkCore;
-using POKEMONSEMAPI.Repositories;
+using POKESEMAPIDatabase.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

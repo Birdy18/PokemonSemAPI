@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace POKEMONSEMAPI.Models{
+namespace POKESEMAPIDatabase.Models{
     public class PokemonStatsCalculationRequest{
         public static PokemonIndividual CalculatePokemonStats(PokemonIndividual individual) {
             individual.HP = (((2 * individual.PokemonDex.HPBaseStat + individual.HPIV + (individual.HPEV/4)) * individual.PokemonLevel)/100) + individual.PokemonLevel + 10;

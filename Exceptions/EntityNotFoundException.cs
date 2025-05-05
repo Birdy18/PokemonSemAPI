@@ -1,4 +1,4 @@
-namespace POKEMONSEMAPI.Exceptions{
+namespace POKESEMAPIDatabase.Exceptions{
 
 public class EntityNotFoundException : Exception {
     public EntityNotFoundException(string message) : base(message)

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using POKEMONSEMAPI.Repositories;
+using POKESEMAPIDatabase.Repositories;
 
 #nullable disable
 
@@ -21,7 +21,7 @@ namespace PokemonSemAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonDex", b =>
+            modelBuilder.Entity("POKESEMAPIDatabase.Models.PokemonDex", b =>
                 {
                     b.Property<int>("NationalDexNumber")
                         .ValueGeneratedOnAdd()
@@ -58,7 +58,7 @@ namespace PokemonSemAPI.Migrations
                     b.ToTable("PokeDexEntries");
                 });
 
-            modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonIndividual", b =>
+            modelBuilder.Entity("POKESEMAPIDatabase.Models.PokemonIndividual", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -136,16 +136,16 @@ namespace PokemonSemAPI.Migrations
                     b.ToTable("PokeIndividual");
                 });
 
-            modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonIndividual", b =>
+            modelBuilder.Entity("POKESEMAPIDatabase.Models.PokemonIndividual", b =>
                 {
-                    b.HasOne("POKEMONSEMAPI.Models.PokemonDex", "PokemonDex")
+                    b.HasOne("POKESEMAPIDatabase.Models.PokemonDex", "PokemonDex")
                         .WithMany("PokemonInstance")
                         .HasForeignKey("PokemonDexNationalDexNumber");
 
                     b.Navigation("PokemonDex");
                 });
 
-            modelBuilder.Entity("POKEMONSEMAPI.Models.PokemonDex", b =>
+            modelBuilder.Entity("POKESEMAPIDatabase.Models.PokemonDex", b =>
                 {
                     b.Navigation("PokemonInstance");
                 });

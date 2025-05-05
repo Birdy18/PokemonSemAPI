@@ -1,8 +1,8 @@
 using System.Data;
 using Microsoft.AspNetCore.SignalR.Protocol;
-using POKEMONSEMAPI.Models;
+using POKESEMAPIDatabase.Models;
 
-namespace POKEMONSEMAPI.Repositories{
+namespace POKESEMAPIDatabase.Repositories{
     public class PokemonRepositoryEfImpl : IPokemonRepository {
         private readonly PokeDbContext dbContext;
 

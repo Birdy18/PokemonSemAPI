@@ -2,12 +2,12 @@ using System.Data.Common;
 using System.Collections.Immutable;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using POKEMONSEMAPI.Models;
-using POKEMONSEMAPI.Models.Requests;
-using POKEMONSEMAPI.Repositories;
+using POKESEMAPIDatabase.Models;
+using POKESEMAPIDatabase.Models.Requests;
+using POKESEMAPIDatabase.Repositories;
 using Microsoft.Extensions.Options;
 using System.Security.Cryptography;
-namespace POKEMONSEMAPI.Controllers
+namespace POKESEMAPIDatabase.Controllers
 {
     [Route("[controller]")]
     [ApiController]
