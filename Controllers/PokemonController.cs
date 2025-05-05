@@ -95,5 +95,38 @@ namespace SemesterProject.Controllers
         public PokemonIndividual? GetPokemonIndividualById(int id) {
             return pokemonRepository.GetPokemonIndividualById(id);
         }
+
+        [HttpPut("/pokemon-individual/{id}", Name = "PokemonIndividualToUpdate")]
+        public PokemonIndividual? UpdatePokemonIndividual(int id, PokemonIndividualCreateRequest request) {
+            PokemonIndividual? pokemonIndvToUpdate = pokemonRepository.GetPokemonIndividualById(id);
+            if(pokemonIndvToUpdate == null) {
+                throw new Exception($"PokemonIndividual {id} was not found.");
+            }
+            pokemonIndvToUpdate.BuildName = request.BuildName;
+            pokemonIndvToUpdate.PokemonLevel = request.PokemonLevel;
+            pokemonIndvToUpdate.HPIV = request.HPIV;
+            pokemonIndvToUpdate.ATKIV = request.ATKIV;
+            pokemonIndvToUpdate.DEFIV = request.DEFIV;
+            pokemonIndvToUpdate.SPATKIV = request.SPATKIV;
+            pokemonIndvToUpdate.SPDEFIV = request.SPDEFIV;
+            pokemonIndvToUpdate.SPDIV = request.SPDIV;
+            pokemonIndvToUpdate.HPEV = request.HPEV;
+            pokemonIndvToUpdate.ATKEV = request.ATKEV;
+            pokemonIndvToUpdate.DEFEV = request.DEFEV;
+            pokemonIndvToUpdate.SPATKEV = request.SPATKEV;
+            pokemonIndvToUpdate.SPDEFEV = request.SPDEFEV;
+            pokemonIndvToUpdate.SPDEV = request.SPDEV;
+
+            return pokemonRepository.UpdatePokemonIndividual(pokemonIndvToUpdate);
+        }
+
+        [HttpDelete("/pokemon-individual/{id}", Name = "DeletePokemonIndvById")]
+        public void DeletePokemonIndvById(int id) {
+            PokemonIndividual? pokeIndvToDelete = pokemonRepository.GetPokemonIndividualById(id);
+            if(pokeIndvToDelete == null) {
+                throw new Exception($"PokemonIndividual {id} was not found.");
+            }
+            pokemonRepository.DeletePokemonIndvById(pokeIndvToDelete);
+        }
     }
 }

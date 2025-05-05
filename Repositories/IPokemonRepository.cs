@@ -24,5 +24,9 @@ namespace SemesterProject.Repositories{
         PokemonIndividual? AddPokemontoIndividual(PokemonIndividual pokeIndividual);
 
         PokemonIndividual? GetPokemonIndividualById(int id);
+
+        PokemonIndividual UpdatePokemonIndividual(PokemonIndividual PokemonIndividualToUpdate);
+
+        void DeletePokemonIndvById(PokemonIndividual pokemonIndvToDelete);
     }
 }

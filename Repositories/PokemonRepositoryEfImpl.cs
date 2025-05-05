@@ -49,5 +49,16 @@ namespace SemesterProject.Repositories{
         public PokemonIndividual? GetPokemonIndividualById(int id) {
             return dbContext.PokeIndividual.Find(id);
         }
+
+        public PokemonIndividual? UpdatePokemonIndividual(PokemonIndividual pokemonIndividual) {
+            dbContext.PokeIndividual.Update(pokemonIndividual);
+            dbContext.SaveChanges();
+            return pokemonIndividual;
+        }
+
+        public void DeletePokemonIndvById(PokemonIndividual pokemonIndvToDelete) {
+            dbContext.PokeIndividual.Remove(pokemonIndvToDelete);
+            dbContext.SaveChanges();
+        }
     }
 }
