@@ -6,8 +6,6 @@ namespace POKEMONSEMAPI.Models.Requests {
         [Required]
         public int NationalDexNumber{get; set;}
         [Required]
-        [MinLength(8)]
-        [MaxLength(20)]
         public string? PokemonName{get;set;}
         [Required]
         public string? PokemonType{get; set;}
