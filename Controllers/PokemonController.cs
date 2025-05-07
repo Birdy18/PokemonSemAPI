@@ -21,7 +21,7 @@ namespace SemesterProject.Controllers
             pokemonRepository = repository;
         }
         
-        [HttpPost("addPokemon", Name = "AddPokemon")]
+        [HttpPost("/pokemon-dex/add", Name = "AddPokemonDex")]
         public PokemonDex AddPokemon(PokemonDexCreateRequest request){
             PokemonDex pokemon = new PokemonDex();
             pokemon.NationalDexNumber = request.NationalDexNumber;
@@ -37,13 +37,13 @@ namespace SemesterProject.Controllers
             return pokemonRepository.AddPokemontoDex(pokemon);
         }
 
-        [HttpGet("{NDN}", Name = "GetPokemonDexByNDN")]
+        [HttpGet("/pokemon-dex/getNDN", Name = "GetPokemonDexByNDN")]
         public PokemonDex? GetPokemonDexById(int NDN) {
             //Returns the PokemonDex NationalDexNumber.  NULL if no NDN
             return pokemonRepository.GetPokemonDexByNDN(NDN);
         }
 
-        [HttpPut("{NDN}", Name = "UpdatePokmeonDexByNDN")]
+        [HttpPut("/pokemon-dex/update", Name = "UpdatePokmeonDexByNDN")]
         public PokemonDex UpdatePokemonDexByNDN(int NDN, PokemonDexCreateRequest request) {
             PokemonDex? pokemonDexToUpdate = pokemonRepository.GetPokemonDexByNDN(NDN);
             if(pokemonDexToUpdate == null) {
@@ -61,7 +61,7 @@ namespace SemesterProject.Controllers
             return pokemonRepository.UpdatePokemonDex(pokemonDexToUpdate);
         }
 
-        [HttpDelete("{NDN}", Name = "DeletePokemonDexByNDN")]
+        [HttpDelete("/pokemon-dex/delete", Name = "DeletePokemonDexByNDN")]
         public void DeletePokemonDexByNDN(int NDN) {
             PokemonDex? pokemonDexToDelete = pokemonRepository.GetPokemonDexByNDN(NDN);
             if(pokemonDexToDelete == null) {
@@ -70,7 +70,7 @@ namespace SemesterProject.Controllers
             pokemonRepository.DeletePokemonDexByNDN(pokemonDexToDelete);
         }
 
-        [HttpPost("addIndividual", Name = "AddPokemonIndividual")]
+        [HttpPost("/pokemon-individual/add", Name = "AddPokemonIndividual")]
         public PokemonIndividual AddPokemonIndividual(PokemonIndividualCreateRequest request) {
             PokemonIndividual instance = new PokemonIndividual();
             instance.BuildName = request.BuildName;
@@ -91,12 +91,12 @@ namespace SemesterProject.Controllers
             return pokemonRepository.AddPokemontoIndividual(instance);
         }
 
-        [HttpGet("/pokemon-individual/{id}", Name = "GetPokemonIndividualById")]
+        [HttpGet("/pokemon-individual/getID", Name = "GetPokemonIndividualById")]
         public PokemonIndividual? GetPokemonIndividualById(int id) {
             return pokemonRepository.GetPokemonIndividualById(id);
         }
 
-        [HttpPut("/pokemon-individual/{id}", Name = "PokemonIndividualToUpdate")]
+        [HttpPut("/pokemon-individual/update", Name = "PokemonIndividualToUpdate")]
         public PokemonIndividual? UpdatePokemonIndividual(int id, PokemonIndividualCreateRequest request) {
             PokemonIndividual? pokemonIndvToUpdate = pokemonRepository.GetPokemonIndividualById(id);
             if(pokemonIndvToUpdate == null) {
@@ -120,7 +120,7 @@ namespace SemesterProject.Controllers
             return pokemonRepository.UpdatePokemonIndividual(pokemonIndvToUpdate);
         }
 
-        [HttpDelete("/pokemon-individual/{id}", Name = "DeletePokemonIndvById")]
+        [HttpDelete("/pokemon-individual/delete", Name = "DeletePokemonIndvById")]
         public void DeletePokemonIndvById(int id) {
             PokemonIndividual? pokeIndvToDelete = pokemonRepository.GetPokemonIndividualById(id);
             if(pokeIndvToDelete == null) {
@@ -129,7 +129,7 @@ namespace SemesterProject.Controllers
             pokemonRepository.DeletePokemonIndvById(pokeIndvToDelete);
         }
 
-        [HttpPut("/pokemon-individual/stats", Name = "CalculatePokemonStats")]
+        [HttpPut("/pokemon-individual/calculate", Name = "CalculatePokemonStats")]
         public PokemonStats? CalculatePokemonStats(int NDN, int id) {
             PokemonDex pokemonDex = pokemonRepository.GetPokemonDexByNDN(NDN);
             if(pokemonDex == null) {
