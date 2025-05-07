@@ -130,7 +130,7 @@ namespace SemesterProject.Controllers
         }
 
         [HttpPut("/pokemon-individual/stats", Name = "CalculatePokemonStats")]
-        public PokemonStats? CalculatePokemonStats(int NDN, int id, PokemonStats stats) {
+        public PokemonStats? CalculatePokemonStats(int NDN, int id) {
             PokemonDex pokemonDex = pokemonRepository.GetPokemonDexByNDN(NDN);
             if(pokemonDex == null) {
                 throw new Exception($"PokemonDex {NDN} was not found.");
@@ -139,21 +139,17 @@ namespace SemesterProject.Controllers
             if(pokemonIndividual == null) {
                 throw new Exception($"PokemonIndividual {id} was not found.");
             }
-            stats.HP = (((2 * stats.DexId.HPBaseStat + stats.IndvId.HPIV + (stats.IndvId.HPEV/4)) * stats.IndvId.PokemonLevel)/100) + stats.IndvId.PokemonLevel + 10;
-            stats.Attack = (((2 * stats.DexId.ATKBaseStat + stats.IndvId.ATKIV + (stats.IndvId.ATKEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
-            stats.Defense = (((2 * stats.DexId.DEFBaseStat + stats.IndvId.DEFIV + (stats.IndvId.DEFEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
-            stats.SpAttack = (((2 * stats.DexId.SPATKBaseStat + stats.IndvId.SPATKIV + (stats.IndvId.SPATKEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
-            stats.SpDefense = (((2 * stats.DexId.SPDEFBaseStat + stats.IndvId.SPDEFIV + (stats.IndvId.SPDEFEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
-            stats.Speed = (((2 * stats.DexId.SPDBaseStat + stats.IndvId.SPDIV + (stats.IndvId.SPDEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
-            
-            return new PokemonStats{
-                HP = stats.HP,
-                Attack = stats.Attack,
-                Defense = stats.Defense,
-                SpAttack = stats.SpAttack,
-                SpDefense = stats.SpDefense,
-                Speed = stats.Speed
-            };
-        }
+
+            PokemonStats stats = new PokemonStats();
+
+            stats.HP = (((2 * pokemonDex.HPBaseStat + pokemonIndividual.HPIV + (pokemonIndividual.HPEV/4)) * pokemonIndividual.PokemonLevel)/100) + pokemonIndividual.PokemonLevel + 10;
+            stats.Attack = (((2 * pokemonDex.ATKBaseStat + pokemonIndividual.ATKIV + (pokemonIndividual.ATKEV/4)) * pokemonIndividual.PokemonLevel)/100) + 5;
+            stats.Defense = (((2 * pokemonDex.DEFBaseStat + pokemonIndividual.DEFIV + (pokemonIndividual.DEFEV/4)) * pokemonIndividual.PokemonLevel)/100) + 5;
+            stats.SpAttack = (((2 * pokemonDex.SPATKBaseStat + pokemonIndividual.SPATKIV + (pokemonIndividual.SPATKEV/4)) * pokemonIndividual.PokemonLevel)/100) + 5;
+            stats.SpDefense = (((2 * pokemonDex.SPDEFBaseStat + pokemonIndividual.SPDEFIV + (pokemonIndividual.SPDEFEV/4)) * pokemonIndividual.PokemonLevel)/100) + 5;
+            stats.Speed = (((2 * pokemonDex.SPDBaseStat + pokemonIndividual.SPDIV + (pokemonIndividual.SPDEV/4)) * pokemonIndividual.PokemonLevel)/100) + 5;
+
+            return stats;
+         }
     }
 }
