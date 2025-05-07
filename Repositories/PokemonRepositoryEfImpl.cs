@@ -61,10 +61,10 @@ namespace SemesterProject.Repositories{
             dbContext.SaveChanges();
         }
 
-        public PokemonIndividual? CalculatePokemonStats(PokemonIndividual indv) {
-            dbContext.PokeIndividual.Update(indv);
+        public PokemonStats? CalculatePokemonStats(PokemonStats stats) {
+            dbContext.PokemonStats.Add(stats);
             dbContext.SaveChanges();
-            return indv;
+            return stats;
         }
     }
 }

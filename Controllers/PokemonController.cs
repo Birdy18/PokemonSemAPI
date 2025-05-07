@@ -130,7 +130,7 @@ namespace SemesterProject.Controllers
         }
 
         [HttpPut("/pokemon-individual/stats", Name = "CalculatePokemonStats")]
-        public PokemonIndividual? CalculatePokemonStats(int NDN, int id, PokemonIndividual indv) {
+        public PokemonStats? CalculatePokemonStats(int NDN, int id, PokemonStats stats) {
             PokemonDex pokemonDex = pokemonRepository.GetPokemonDexByNDN(NDN);
             if(pokemonDex == null) {
                 throw new Exception($"PokemonDex {NDN} was not found.");
@@ -139,20 +139,20 @@ namespace SemesterProject.Controllers
             if(pokemonIndividual == null) {
                 throw new Exception($"PokemonIndividual {id} was not found.");
             }
-            indv.HP = (((2 * indv.PokemonDex.HPBaseStat + indv.HPIV + (indv.HPEV/4)) * indv.PokemonLevel)/100) + indv.PokemonLevel + 10;
-            indv.Attack = (((2 * indv.PokemonDex.ATKBaseStat + indv.ATKIV + (indv.ATKEV/4)) * indv.PokemonLevel)/100) + 5;
-            indv.Defense = (((2 * indv.PokemonDex.DEFBaseStat + indv.DEFIV + (indv.DEFEV/4)) * indv.PokemonLevel)/100) + 5;
-            indv.SpAttack = (((2 * indv.PokemonDex.SPATKBaseStat + indv.SPATKIV + (indv.SPATKEV/4)) * indv.PokemonLevel)/100) + 5;
-            indv.SpDefense = (((2 * indv.PokemonDex.SPDEFBaseStat + indv.SPDEFIV + (indv.SPDEFEV/4)) * indv.PokemonLevel)/100) + 5;
-            indv.Speed = (((2 * indv.PokemonDex.SPDBaseStat + indv.SPDIV + (indv.SPDEV/4)) * indv.PokemonLevel)/100) + 5;
+            stats.HP = (((2 * stats.DexId.HPBaseStat + stats.IndvId.HPIV + (stats.IndvId.HPEV/4)) * stats.IndvId.PokemonLevel)/100) + stats.IndvId.PokemonLevel + 10;
+            stats.Attack = (((2 * stats.DexId.ATKBaseStat + stats.IndvId.ATKIV + (stats.IndvId.ATKEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
+            stats.Defense = (((2 * stats.DexId.DEFBaseStat + stats.IndvId.DEFIV + (stats.IndvId.DEFEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
+            stats.SpAttack = (((2 * stats.DexId.SPATKBaseStat + stats.IndvId.SPATKIV + (stats.IndvId.SPATKEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
+            stats.SpDefense = (((2 * stats.DexId.SPDEFBaseStat + stats.IndvId.SPDEFIV + (stats.IndvId.SPDEFEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
+            stats.Speed = (((2 * stats.DexId.SPDBaseStat + stats.IndvId.SPDIV + (stats.IndvId.SPDEV/4)) * stats.IndvId.PokemonLevel)/100) + 5;
             
-            return new PokemonIndividual{
-                HP = indv.HP,
-                Attack = indv.Attack,
-                Defense = indv.Defense,
-                SpAttack = indv.SpAttack,
-                SpDefense = indv.SpDefense,
-                Speed = indv.Speed
+            return new PokemonStats{
+                HP = stats.HP,
+                Attack = stats.Attack,
+                Defense = stats.Defense,
+                SpAttack = stats.SpAttack,
+                SpDefense = stats.SpDefense,
+                Speed = stats.Speed
             };
         }
     }

@@ -11,12 +11,6 @@ namespace SemesterProject.Models{
         public int ID{get; set;}
         public string? BuildName{get; set;}
         public int PokemonLevel{get; set;}
-        public int HP{get; set;}
-        public int Attack{get; set;}
-        public int Defense{get; set;}
-        public int SpAttack{get; set;}
-        public int SpDefense{get; set;}
-        public int Speed{get; set;}
         public int HPIV{get; set;}
         public int ATKIV{get; set;}
         public int DEFIV{get; set;}
@@ -29,7 +23,7 @@ namespace SemesterProject.Models{
         public int SPATKEV{get; set;}
         public int SPDEFEV{get; set;}
         public int SPDEV{get; set;}
-
+        
         //Navigational Property
         public PokemonDex? PokemonDex{get; set;}
     }
