@@ -43,6 +43,11 @@ namespace SemesterProject.Controllers
             return pokemonRepository.GetPokemonDexByNDN(NDN);
         }
 
+        [HttpGet("/pokemon-dex/getALL", Name = "GetAllPokemonDexEntries")]
+        public List<PokemonDex> GetAllPokemonDex() {
+            return pokemonRepository.GetAllPokemonDexEntries();
+        }
+
         [HttpPut("/pokemon-dex/update", Name = "UpdatePokmeonDexByNDN")]
         public PokemonDex UpdatePokemonDexByNDN(int NDN, PokemonDexCreateRequest request) {
             PokemonDex? pokemonDexToUpdate = pokemonRepository.GetPokemonDexByNDN(NDN);
@@ -94,6 +99,11 @@ namespace SemesterProject.Controllers
         [HttpGet("/pokemon-individual/getID", Name = "GetPokemonIndividualById")]
         public PokemonIndividual? GetPokemonIndividualById(int id) {
             return pokemonRepository.GetPokemonIndividualById(id);
+        }
+
+        [HttpGet("/pokemon-individual/getALL", Name = "GetAllPokemonIndividuals0")]
+        public List<PokemonIndividual> GetAllPokemonIndividuals() {
+            return pokemonRepository.GetAllPokemonIndividuals();
         }
 
         [HttpPut("/pokemon-individual/update", Name = "PokemonIndividualToUpdate")]

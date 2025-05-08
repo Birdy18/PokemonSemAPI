@@ -17,6 +17,8 @@ namespace SemesterProject.Repositories{
         /// <returns>The PokemonDex entry</returns>
         PokemonDex? GetPokemonDexByNDN(int NDN);
 
+        List<PokemonDex> GetAllPokemonDexEntries();
+
         PokemonDex UpdatePokemonDex(PokemonDex PokemonDexToUpdate);
 
         void DeletePokemonDexByNDN(PokemonDex pokemonDexToDelete);
@@ -24,6 +26,8 @@ namespace SemesterProject.Repositories{
         PokemonIndividual? AddPokemontoIndividual(PokemonIndividual pokeIndividual);
 
         PokemonIndividual? GetPokemonIndividualById(int id);
+
+        List<PokemonIndividual> GetAllPokemonIndividuals();
 
         PokemonIndividual UpdatePokemonIndividual(PokemonIndividual PokemonIndividualToUpdate);
 

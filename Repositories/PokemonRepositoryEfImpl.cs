@@ -27,6 +27,10 @@ namespace SemesterProject.Repositories{
             return dbContext.PokeDexEntries.Find(NDN);
         }
 
+        public List<PokemonDex> GetAllPokemonDexEntries() {
+            return dbContext.PokeDexEntries.ToList();
+        }
+
         public PokemonDex? UpdatePokemonDex(PokemonDex pokemonDex)
         {
             dbContext.PokeDexEntries.Update(pokemonDex);
@@ -48,6 +52,10 @@ namespace SemesterProject.Repositories{
 
         public PokemonIndividual? GetPokemonIndividualById(int id) {
             return dbContext.PokeIndividual.Find(id);
+        }
+
+        public List<PokemonIndividual> GetAllPokemonIndividuals() {
+            return dbContext.PokeIndividual.ToList();
         }
 
         public PokemonIndividual? UpdatePokemonIndividual(PokemonIndividual pokemonIndividual) {
