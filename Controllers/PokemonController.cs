@@ -22,6 +22,7 @@ namespace SemesterProject.Controllers
         }
         
         [HttpPost("/pokemon-dex/add", Name = "AddPokemonDex")]
+        //Create a new PokemonDex entry
         public PokemonDex AddPokemon(PokemonDexCreateRequest request){
             PokemonDex pokemon = new PokemonDex();
             pokemon.NationalDexNumber = request.NationalDexNumber;
@@ -45,10 +46,12 @@ namespace SemesterProject.Controllers
 
         [HttpGet("/pokemon-dex/getALL", Name = "GetAllPokemonDexEntries")]
         public List<PokemonDex> GetAllPokemonDex() {
+            //Returns all PokemonDex entries
             return pokemonRepository.GetAllPokemonDexEntries();
         }
 
         [HttpPut("/pokemon-dex/update", Name = "UpdatePokmeonDexByNDN")]
+        //If you need to fix one of the Dex entries due to an error, this will help with that
         public PokemonDex UpdatePokemonDexByNDN(int NDN, PokemonDexCreateRequest request) {
             PokemonDex? pokemonDexToUpdate = pokemonRepository.GetPokemonDexByNDN(NDN);
             if(pokemonDexToUpdate == null) {
@@ -66,6 +69,7 @@ namespace SemesterProject.Controllers
             return pokemonRepository.UpdatePokemonDex(pokemonDexToUpdate);
         }
 
+        //Deleting a Dex entry you don't want or need
         [HttpDelete("/pokemon-dex/delete", Name = "DeletePokemonDexByNDN")]
         public void DeletePokemonDexByNDN(int NDN) {
             PokemonDex? pokemonDexToDelete = pokemonRepository.GetPokemonDexByNDN(NDN);
@@ -75,6 +79,7 @@ namespace SemesterProject.Controllers
             pokemonRepository.DeletePokemonDexByNDN(pokemonDexToDelete);
         }
 
+        //Add a PokemonIndividual entry...
         [HttpPost("/pokemon-individual/add", Name = "AddPokemonIndividual")]
         public PokemonIndividual AddPokemonIndividual(PokemonIndividualCreateRequest request) {
             PokemonIndividual instance = new PokemonIndividual();
@@ -96,11 +101,13 @@ namespace SemesterProject.Controllers
             return pokemonRepository.AddPokemontoIndividual(instance);
         }
 
+        //Use an ID to get the specific PokemonIndividual...
         [HttpGet("/pokemon-individual/getID", Name = "GetPokemonIndividualById")]
         public PokemonIndividual? GetPokemonIndividualById(int id) {
             return pokemonRepository.GetPokemonIndividualById(id);
         }
 
+        //Get all of the PokemonIndividual entires...
         [HttpGet("/pokemon-individual/getALL", Name = "GetAllPokemonIndividuals0")]
         public List<PokemonIndividual> GetAllPokemonIndividuals() {
             return pokemonRepository.GetAllPokemonIndividuals();
